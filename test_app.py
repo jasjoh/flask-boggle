@@ -67,11 +67,14 @@ class BoggleAppTestCase(TestCase):
 
             # call score_word with CAT and get {result: "ok"}
             # format of POST to endpoint expecting JSON is 'json={}', not 'data={}'
-            response = client.post("/api/score-word", json={"game_id": game_id, "word": "CAT"})
+            response = client.post(
+                "/api/score-word",
+                json={"game_id": game_id, "word": "CAT"}
+            )
             print("score word response", response)
             response_dict = response.get_json()
             print("score word response dict:", response_dict)
-
+            self.assertTrue(response_dict == {"result": "ok"})
 
             # call score_word with FOOBAR and get {result: "not-word"}
             # call score_word with DOG and get {result: "not-on-board"}
