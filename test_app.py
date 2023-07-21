@@ -38,3 +38,12 @@ class BoggleAppTestCase(TestCase):
         with self.client as client:
             ...
             # write a test for this route
+            response = client.post("/api/new-game")
+            breakpoint()
+            json = response.get_data(as_text=True)
+            print("json is here:", json)
+            response_dict = response.get_json()
+
+
+
+
