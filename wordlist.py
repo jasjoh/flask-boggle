@@ -35,6 +35,8 @@ class WordList:
             True
             >>> wl.check_word('TAC')
             False
+            >>> wl.check_word('cat')
+            False
         """
 
         return word in self.words
